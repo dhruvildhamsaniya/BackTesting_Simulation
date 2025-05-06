@@ -13,7 +13,10 @@ mkdir build
 cd build
 cmake ..
 make
+./backtesting_simulator NIFTY02JAN2521600PE.NFO
 
+open another terminal and run
+./mmap_reader 1001 500
 
 backtesting_simulator/
 ├── build/
