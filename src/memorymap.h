@@ -14,6 +14,8 @@ public:
     ~MemoryMap();
 
     void write(size_t index, const ContractData& cd);
+    ContractData read(size_t index) const;
+
     void dump_all(size_t contractCount) const;
 
 private:

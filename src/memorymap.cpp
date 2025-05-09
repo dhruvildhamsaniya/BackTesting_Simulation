@@ -37,6 +37,16 @@ MemoryMap::~MemoryMap() {
     close(fd);
 }
 
+ContractData MemoryMap::read(size_t index) const {
+    if (index * BLOCK_SIZE >= total_size)
+        throw std::out_of_range("Index out of range in mmap read");
+
+    ContractData cd;
+    std::memcpy(&cd, data + index * BLOCK_SIZE, BLOCK_SIZE);
+    return cd;
+}
+
+
 void MemoryMap::write(size_t index, const ContractData& cd) {
     if (index * BLOCK_SIZE >= total_size)
         throw std::out_of_range("Index out of range in mmap write");

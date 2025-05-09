@@ -107,6 +107,16 @@ void run_simulation(const std::string &tokenMapPath, const std::string &contract
                 memMap.write(token - 1001, cd);
             }
         }
+        ////to test if data is updated at every second after adding some delay 
+        // std::cout << "[Timestamp " << timestamp << "]\n";
+        // for (size_t i = 0; i < tokenToFile.size(); ++i) {
+        //     ContractData cd = memMap.read(i);
+        //     std::cout << "Contract " << i
+        //             << ": LTP=" << cd.ltp
+        //             << ", Bid=" << cd.bid
+        //             << ", Ask=" << cd.ask
+        //             << ", Timestamp=" << cd.timestamp << "\n";
+        // }
 
         auto tickEnd = std::chrono::high_resolution_clock::now();
         auto tickDuration = std::chrono::duration_cast<std::chrono::milliseconds>(tickEnd - tickStart).count();
